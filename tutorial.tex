@@ -1,0 +1,76 @@
+\documentclass[a4paper, 9pt]{article}
+
+% page layout
+\usepackage{geometry}
+\geometry{lmargin=1.3in, rmargin=1.3in}
+
+% header formatting
+\usepackage{sectsty}
+\sectionfont{\large}
+
+% danish letters and text symbols
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% links
+\usepackage{hyperref}
+
+% title page
+\title{Emacs: C Guide}
+\author{Alexander Christensen}
+
+% emacs commands
+\newcommand{\key}[1]{\texttt{"<#1>"}}
+
+
+\begin{document}
+\maketitle
+
+\abstract{Guide til opsætning af C udviklingsmiljø i Emacs, herunder indentering, hurtig kompilering, auto-completion}
+
+\section{Notation}
+I Emacs jargon betyder \key{C-c} at man trykker "Control c" på sit tastatur, \key{M-c} betyder "Alt c", og \key{RET} betyder "enter".
+
+\section{Intoduktion}
+Denne guide henvender sig primært til studerende på DIKU, som skal til at påbegynde deres andet studieår, og som derfor skal lære at programmere \texttt{C}. Det forudantages, at læseren er bekendt med init-filen i sin Emacs-opsætning, hvor den er gemt, og hvordan den fungerer.\\
+
+Nyttige kommandoer i denne sammenhæng: \key{C-e} i slutningen af en linje eller blok med E-lisp kode vil evaluere denne linje eller blok. \key{M-x} $\rightarrow$ "eval buffer" vil evaluere hele init-filen.
+
+
+\newpage
+\section{Indentering}
+I en aktiv buffer, tast \key{C-c C-o}, og mini-bufferen vil vise den variabel, som definerer indenteringen på den pågældende linje. Tast \key{RET}, og du har mulighed for at ændre indenteringen (eller tast \key{C-g} for at afbryde).\\
+
+Det er værd at bemærke, at denne indentering er afhængig af, om Emacs er indstillet til at indentere med tabs eller spaces! Til CompSys anbefales det at indentere med 2 spaces, og dette opnås ved at tilføje følende linjer til init-filen:
+% TODO: bedre kode-formattering
+\begin{verbatim}
+(setq indent-tabs-mode nil)
+(setq-default tab-width 2)
+\end{verbatim}
+
+\vspace{3mm}\noindent\textbf{\underline{eksempel:}}\vspace{2mm}\\
+For at kunne indentere smertefrit med 2 spaces, kunne følgende linjer tilføjes til init-filen:
+\begin{verbatim}
+(defun my-c-mode-hook ()
+  (setq-default c-basic-offset 2
+                tab-width 2
+                indent-tabs-mode nil)
+  (c-set-offset 'defun-block-intro 2)
+  (c-set-offset 'statement-block-intro 2)
+  (c-set-offset 'comment-intro 0)
+  (c-set-offset 'func-decl-cont 0)
+  )
+
+(add-hook 'c-mode-hook 'my-c-mode-hook)
+\end{verbatim}\vspace{2mm}
+
+\noindent
+Hvis indentering 'driller', brug da metoden vist ovenfor: Undersøg, hvilken variabel, der definerer den pågældende linjes indentering, og tilføj rettelsen til init-filen.
+
+
+\newpage
+\section{Øvrige referencer}
+\url{http://tuhdo.github.io/c-ide.html#sec-2}
+
+
+\end{document}
