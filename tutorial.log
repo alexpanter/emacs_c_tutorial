@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.2.5)  30 JUL 2017 02:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.2.5)  4 AUG 2017 07:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -690,20 +690,25 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 136.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 136.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 142.
 
+(./tutorial.toc)
+\tf@toc=\write4
+\openout4 = `tutorial.toc'.
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 143.
+
+ (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 152.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 152.
- [1
+[1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 164--165
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 153.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 153.
+ [2]
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
 
  []
 
@@ -714,70 +719,95 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 File: lstlang2.sty 2015/06/04 1.6 listings language file
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 169.
+(Font)              <7> on input line 170.
  (./add-melpa.el)
-Underfull \hbox (badness 10000) in paragraph at lines 169--170
+Underfull \hbox (badness 10000) in paragraph at lines 170--171
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--177
+Underfull \hbox (badness 10000) in paragraph at lines 177--178
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 178--179
+Underfull \hbox (badness 10000) in paragraph at lines 179--180
 
  []
 
-<ielm-in-action.png, id=63, 539.01375pt x 251.94125pt>
+<ielm-in-action.png, id=93, 539.01375pt x 251.94125pt>
 File: ielm-in-action.png Graphic file (type png)
 
 <use ielm-in-action.png>
-Package pdftex.def Info: ielm-in-action.png used on input line 188.
+Package pdftex.def Info: ielm-in-action.png used on input line 189.
 (pdftex.def)             Requested size: 341.43306pt x 159.59264pt.
- [2]
+
 Underfull \hbox (badness 10000) in paragraph at lines 195--196
 
  []
 
-(./fix-your-indentation.el)
+[3] (./hook-1.el)
 Underfull \hbox (badness 10000) in paragraph at lines 199--200
 
  []
 
-(./indentation-style.el)
-Underfull \hbox (badness 10000) in paragraph at lines 204--205
+(./hook-2.el)
+Underfull \hbox (badness 10000) in paragraph at lines 203--204
 
  []
 
-[3 <./ielm-in-action.png>] [4] (./my-compile-function.el)
+[4 <./ielm-in-action.png>] (./setup-backups.el)
+Underfull \hbox (badness 10000) in paragraph at lines 213--214
+
+ []
+
+[5]
 Underfull \hbox (badness 10000) in paragraph at lines 220--221
 
  []
 
-[5] (./shell-pop.el)
-Underfull \hbox (badness 10000) in paragraph at lines 232--233
+(./fix-your-indentation.el)
+Underfull \hbox (badness 10000) in paragraph at lines 224--225
 
  []
 
-[6] [7] 
+(./indentation-style.el)
+Underfull \hbox (badness 10000) in paragraph at lines 229--230
+
+ []
+
+[6] (./my-compile-function.el)
+Underfull \hbox (badness 10000) in paragraph at lines 245--246
+
+ []
+
+[7] (./activate-flycheck.el)
+Underfull \hbox (badness 10000) in paragraph at lines 257--258
+
+ []
+
+[8] (./shell-pop.el)
+Underfull \hbox (badness 10000) in paragraph at lines 267--268
+
+ []
+
+[9] [10] 
 AED: lastpage setting LastPage
-[8]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 247.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 247.
+[11]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 282.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 282.
  (./tutorial.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 247.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 247.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 282.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 282.
 Package rerunfilecheck Info: File `tutorial.out' has not changed.
-(rerunfilecheck)             Checksum: C3E6AFC43A939835CD9E42F5F5065F04;508.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 247.
+(rerunfilecheck)             Checksum: 2941705342FBFB205F44CA5D3359844A;654.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 282.
  ) 
 Here is how much of TeX's memory you used:
- 8740 strings out of 494374
- 121788 string characters out of 6164955
- 278715 words of memory out of 5000000
- 11872 multiletter control sequences out of 15000+600000
+ 8820 strings out of 494374
+ 122983 string characters out of 6164955
+ 300746 words of memory out of 5000000
+ 11896 multiletter control sequences out of 15000+600000
  15058 words of font info for 38 fonts, out of 8000000 for 9000
  350 hyphenation exceptions out of 8191
  35i,11n,55p,594b,1488s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -792,10 +822,10 @@ nappen/ec/ecrm0800.600pk> </home/alexander/.texmf-var/fonts/pk/ljfour/jknappen/
 ec/ecbx0900.600pk> </home/alexander/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm
 1200.600pk> </home/alexander/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.60
 0pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
-Output written on tutorial.pdf (8 pages, 138638 bytes).
+Output written on tutorial.pdf (11 pages, 156986 bytes).
 PDF statistics:
- 538 PDF objects out of 1000 (max. 8388607)
- 196 compressed objects within 2 object streams
- 74 named destinations out of 1000 (max. 500000)
- 94 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 661 PDF objects out of 1000 (max. 8388607)
+ 275 compressed objects within 3 object streams
+ 115 named destinations out of 1000 (max. 500000)
+ 118 words of extra memory for PDF output out of 10000 (max. 10000000)
 

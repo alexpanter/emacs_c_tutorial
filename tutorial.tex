@@ -137,6 +137,7 @@ numbers=none
 \abstract{\footnotesize\begin{center}
 Guide til opsætning af C udviklingsmiljø i Emacs, herunder indentering, kompilering, auto-completion, pakkekonfiguration, samt navigation.\end{center}}
 
+\tableofcontents
 
 \section{Introduktion}
 Denne guide henvender sig primært til studerende på DIKU, som skal til at påbegynde deres andet studieår, og som derfor skal lære at programmere \texttt{C}. Der vil blive lagt væk på pakker og konfigurationer, der knytter sig specifikt til C (eller C++) programmering, og mange fundamentale elementer som fx navigation mellem filer, genvejstaster osv. vil ikke blive berørt.
@@ -190,6 +191,30 @@ I Emacs er der ingen grænser for, hvad der kan ændres på. Et glimrende eksemp
 \end{figure}
 
 
+\section{Hooks}
+Indtil videre har ændringer til init-filen vi har kigget på galdt globalt, dvs hvis vi eksempelvis har skrevet \texttt{(highlight-numbers-mode 1)}, så vil alle aktive buffer vise tal med en anden farve end bogstaverne - en meget nyttig indstilling til programmeringssprog, men måske ikke ønsket, når man skriver Latex. Her kommer hooks ind i billedet.\newline
+
+Et hook er en liste af funktioner, der skal kaldes på et bestemt tidspunkt. Der er fx et hook \texttt{suspend-hook}, som kaldes når Emacs lukker, og der er et hook for hvert major mode (\keycmd{M-x}{c-mode} aktiverer major mode for C programmering). For at aktivere markering af tal, men kun for programmeringssprog, kan følgende skrives i init-filen:
+
+\customlisting{ELisp}{init.el}{hook-1.el}
+
+Man kan også gøre flere ting på een gang ved at kalde en funktion, eller indskrive en lambda i stedet for (lambda = anonym funktion). Dette ikke meget mere komplicerede stykke kode kan også aktivere visning af kolonnenumre:
+
+\customlisting{ELisp}{init.el}{hook-2.el}
+
+\noindent Læs mere om hooks i Emacs:\vspace{1mm}\newline\noindent
+\url{https://www.gnu.org/software/emacs/manual/html_node/elisp/Hooks.html#Hooks}
+
+
+\newpage
+\section{Automatisk backup}
+Som standard (ikke særlig tilfredsstillende) gemmer Emacs en masse backup-filer med tilde $\sim$ i slutningen af filnavnet. Det ser generende ud, så det fikses 'nemt':
+
+\customlisting{ELisp}{init.el}{setup-backups.el}
+
+\noindent Disse indstillinger kan selvfølgelig justeres efter behov, og er udelukkende indsat for demonstrations skyld.
+
+
 \newpage
 \section{Indentering}
 I en aktiv C buffer, tast \key{C-c C-o}, og mini-bufferen vil vise den variabel, som definerer indenteringen på den pågældende linje. Tast \key{RET}, og du har mulighed for at ændre indenteringen (eller tast \key{C-g} for at afbryde).\\
@@ -223,6 +248,16 @@ Det ville være unødvendigt at skrive dette hver gang i terminalen (selvfølgel
 
 
 Det anbefales, at læseren afsætter lidt tid til at forstå, hvordan denne kommando fungerer. Prøv at køre den!
+
+
+\newpage
+\section{Syntaks-check}
+Det kan være en uvurderlig hjælp at få sin tekst-editor opsat med løbende syntaks-check af ens kode. I de fleste IDE'er (alle?) sker dette automatisk. Pakken \package{flycheck} eksisterer til dette formål, og kræver ikke særlig meget at sætte op:
+
+\customlisting{ELisp}{init.el}{activate-flycheck.el}
+
+\noindent
+Husk at installere pakken via Emacs' pakke-manager først.
 
 
 \newpage
