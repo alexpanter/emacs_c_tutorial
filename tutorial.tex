@@ -56,7 +56,7 @@
 \usepackage{alltt}
 
 % title page
-\title{Emacs: C Guide}
+\title{Emacs: Introduktion og C Guide}
 \author{Alexander Christensen}
 
 % emacs commands
@@ -135,7 +135,7 @@ numbers=none
 \maketitle
 
 \abstract{\footnotesize\begin{center}
-Guide til opsætning af C udviklingsmiljø i Emacs, herunder indentering, kompilering, auto-completion, pakkekonfiguration, samt navigation.\end{center}}
+Introduktion til Emacs, samt guide til opsætning af C udviklingsmiljø i Emacs; herunder indentering, kompilering, auto-completion, og konfiguration af pakker.\end{center}}
 
 \tableofcontents
 
@@ -192,9 +192,9 @@ I Emacs er der ingen grænser for, hvad der kan ændres på. Et glimrende eksemp
 
 
 \section{Hooks}
-Indtil videre har ændringer til init-filen vi har kigget på galdt globalt, dvs hvis vi eksempelvis har skrevet \texttt{(highlight-numbers-mode 1)}, så vil alle aktive buffer vise tal med en anden farve end bogstaverne - en meget nyttig indstilling til programmeringssprog, men måske ikke ønsket, når man skriver Latex. Her kommer hooks ind i billedet.\newline
+Indtil videre har ændringer til init-filen vi har kigget på galdt globalt, dvs hvis vi eksempelvis har skrevet \texttt{(highlight-numbers-mode 1)}, så vil alle aktive buffere vise tal med en anden farve end bogstaverne - en meget nyttig indstilling til programmeringssprog, men måske ikke ønsket, når man skriver Latex. Her kommer hooks ind i billedet.\newline
 
-Et hook er en liste af funktioner, der skal kaldes på et bestemt tidspunkt. Der er fx et hook \texttt{suspend-hook}, som kaldes når Emacs lukker, og der er et hook for hvert major mode (\keycmd{M-x}{c-mode} aktiverer major mode for C programmering). For at aktivere markering af tal, men kun for programmeringssprog, kan følgende skrives i init-filen:
+Et hook er en liste af funktioner, der skal kaldes på et bestemt tidspunkt. Der er fx et \texttt{suspend-hook}, som kaldes når Emacs lukker, og der er et hook for hvert major mode (\keycmd{M-x}{c-mode} aktiverer major mode for C programmering). For at aktivere markering af tal, men kun for programmeringssprog, kan følgende skrives i init-filen:
 
 \customlisting{ELisp}{init.el}{hook-1.el}
 
@@ -251,32 +251,50 @@ Det anbefales, at læseren afsætter lidt tid til at forstå, hvordan denne komm
 
 
 \newpage
-\section{Syntaks-check}
-Det kan være en uvurderlig hjælp at få sin tekst-editor opsat med løbende syntaks-check af ens kode. I de fleste IDE'er (alle?) sker dette automatisk. Pakken \package{flycheck} eksisterer til dette formål, og kræver ikke særlig meget at sætte op:
+\section{Ekstra}
+Der findes et utal af pakker til Emacs. Her vil blot blive nævnt et par af de mest betydningsfulde, når det gælder øget livskvalitet: (Husk at installere pakkerne via Emacs' pakke-manager først.)
+
+\subsection*{Syntaks-check}
+Det kan være en uvurderlig hjælp at få sin tekst-editor opsat med løbende syntaks-check af ens kode. Pakken \package{flycheck} eksisterer til dette formål, og kræver ikke særlig meget at sætte op:
 
 \customlisting{ELisp}{init.el}{activate-flycheck.el}
 
-\noindent
-Husk at installere pakken via Emacs' pakke-manager først.
 
-
-\newpage
-\section{Shell-Pop}
-Pakken \package{shell-pop} kan være smart hvis man vil hurtigt vil køre en terminalkommando inde fra den mappe, hvori den aktive buffer er hentet fra. Med et tryk på en knap (her er valgt \key{<f2>}) popper der en terminal frem neden under den aktive buffer, og med et tryk på samme knap forsvinder den igen.
+\subsection*{Pop-up terminal}
+Pakken \package{shell-pop} kan være smart hvis man hurtigt vil køre en terminalkommando inde fra den mappe, hvori den aktive buffer er hentet fra. Med et tryk på en knap (her er valgt \key{<f2>}) popper der en terminal frem neden under den aktive buffer, og med et tryk på samme knap forsvinder den igen.
 
 \customlisting{ELisp}{init.el}{shell-pop.el}
 
-\noindent
-Husk at installere pakken via Emacs' pakke-manager først.
+
+\subsection*{Auto-completion}
+At få komplet auto-completion, completion-on-dot, header-file-indexing, og hvad det nu ellers hedder, kræver et større indgreb i ens Emacs-opsætning. Den nysgerrige læser kan kigge på denne tunge, men dybdegående guide: \url{http://tuhdo.github.io/c-ide.html#sec-2} . Nedenfor opridses et par forslag i denne retning.
+
+
+\example{auto-completion}
+Pakken \package{company} leverer et framework til at komme med completion-forslag.\newline(company = \textit{comp}lete \textit{any}thing)
+
+\customlisting{ELisp}{init.el}{setup-company.el}
 
 \newpage
-\section{Auto-completion}
+\example{header-filer}
+Til \package{company} kan der installeres en række udvidelser ("\texttt{backends}"), og en af dem er \package{company-c-headers}, som kan vise en liste af valg når man skriver \texttt{\#include <...} i toppen af et C-script. Følgende linjer kan da tilføjes til init-filen:
 
+\customlisting{ELisp}{init.el}{setup-c-headers.el}
+
+
+\example{funktionsargumenter}
+Pakken \package{function-args} kan vise signaturen for en funktion i auto-complete listen, som \package{company} giver. Det er en ganske nyttig pakke, som også kan lave 'jump-to-definition', hvis den opsættes korrekt. (se mere: \url{https://github.com/abo-abo/function-args})
+
+\customlisting{ELisp}{init.el}{setup-function-args.el}
 
 
 \newpage
-\section{Øvrige referencer}
-\url{http://tuhdo.github.io/c-ide.html#sec-2}
+\section*{Afrunding}
+Emacs er et utroligt versatilt værktøj. Det er kun en brøkdel af, hvad der findes af nyttige pakker og udvidelser, som der har været plads til i denne guide. Til trods for den høje alder, så lever Emacs i bedste velgående, og der udvikles stadig pakker. Det er mit håb, at denne guide har kunnet illustrere de centrale elementer i, hvordan man kan konfigurere og anvende Emacs. Min egen opsætning er tilgængelig på github: \url{https://github.com/alexpanter/emacs-repository} , og leveres udelukkende some reference, og uden garantier!
 
+\begin{figure}
+\centering
+\includegraphics[width=13cm]{cartoon.png}
+\end{figure}
 
 \end{document}
